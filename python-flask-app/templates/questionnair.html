@@ -1,7 +1,7 @@
 {% extends 'base_layout.html' %}
 
 {% block body %}
-	
+
 		<h1>ESGF FORM</h1>
 		<form action="" method="POST">
 
@@ -14,9 +14,35 @@
 		</div>
 
 		<div class="form-group">
-			<label>What is your organization's id?</label>
-			<input type="text" class="form-control" value="xxxxxxxxxxx" name ='q2'>
+			<label>What is the name of your organization?</label>
+			<input type="text" class="form-control" value="xxxxxxxxxxx" name ='organization_name'>
 			<small class="form-text text-muted"> Your Organization's id is an 8 digit number</small>
+		</div>
+
+		<div class="form-group">
+			<label>Please give this node a "short" name</label>
+			<input type="text" class="form-control" value="xxxxxxxxxxx" name ='node_short_name'>
+			<small class="form-text text-muted"> A short descriptor of your node</small>
+		</div>
+
+		<div class="form-group">
+			<label>Please give this node a more descriptive "long" name</label>
+			<input type="text" class="form-control" value="xxxxxxxxxxx" name ='node_long_name'>
+			<small class="form-text text-muted"> A longer descriptor of your node</small>
+		</div>
+
+		<div class="form-group">
+			<label>What is the namespace to use for this node? (set to your reverse fqdn - Ex: "gov.llnl"</label>
+			<input type="text" class="form-control" value="xxxxxxxxxxx" name ='node_namespace'>
+		</div>
+
+		#TODO: make this a multi select
+		<div class="form-group">
+			<label>"What peer group(s) will this node participate in?</label>
+			<select class="form-control" name='node_peer_group'>
+				<option selected>esgf-prod</option>
+				<option value="No">esgf-test</option>
+			</select>
 		</div>
 
 		<div class="form-group">
@@ -38,28 +64,28 @@
 
 		<div class="form-group">
 			<label>Do you want to backup current database?</label>
-			<select class="form-control" name='q5'>
+			<select class="form-control" name='backup_database'>
 				<option selected>Yes</option>
 				<option value="No">No</option>
 			</select>
-			<small class="form-text text-muted">Strongly Recomended</small>
+			<small class="form-text text-muted">Strongly Recommended</small>
 		</div>
 
 
 		<div class="form-group">
-			<label>Create password for postgress system account:</label>
-			<input class="form-control" type="password" placeholder="password" name='q6'>
+			<label>Create password for Postgres system account:</label>
+			<input class="form-control" type="password" placeholder="password" name='pg_system_password'>
 			<small class="form-text text-muted">Your password should contain a of combination capital letters, special characters and numbers</small>
 		</div>
 
 		<div class="form-group">
-			<label>Please enter PostgresSLQ port number</label>
-			<input class="form-control" type="text" value="port number" name='q7'>
+			<label>Please enter PostgresSQL port number</label>
+			<input class="form-control" type="text" value="port_number" name='postgres_port'>
 		</div>
 
 		<div class="form-group">
 			<label>Do you want to continue with CDAT installation?</label>
-			<select class="form-control" name='q8'>
+			<select class="form-control" name='cdat_installation'>
 				<option selected>Yes</option>
 				<option value="No">No</option>
 			</select>
@@ -72,7 +98,7 @@
 				<option selected>Yes</option>
 				<option value="No">No</option>
 			</select>
-			<small class="form-text text-muted">Strongly Recomended</small>
+			<small class="form-text text-muted">Strongly Recommended</small>
 		</div>
 
 		<div class="form-group">
@@ -88,7 +114,7 @@
 
 		<div class="form-group">
 			<label>Would you like to use the Distinguished Name?</label>
-			<select class="form-control" name='q12'>
+			<select class="form-control" name='distinguished_name'>
 				<option selected>Yes</option>
 				<option value="No">No</option>
 			</select>
@@ -107,19 +133,19 @@
 		</div>
 
 		<div class="form-group">
-			<label>Please enter the password for this posgress user:</label>
-			<input class="form-control" type="password" value="password" name='q15'>
+			<label>Please enter the password for this Postgres user:</label>
+			<input class="form-control" type="password" value="password" name='pg_user_password'>
 			<small class="form-text text-muted">Your password should contain a of combination capital letters, special characters and numbers</small>
 		</div>
 
 		<div class="form-group">
-			<label>Please re-enter the password for posgress user:</label>
-			<input class="form-control" type="password" value="password" name='q16'>
+			<label>Please re-enter the password for Postgres user:</label>
+			<input class="form-control" type="password" value="password" name='pg_user_password_confirm'>
 		</div>
 
 		<div class="form-group">
-			<label>Enter a single ip address which would be cleared to access admin restricted pages:</label>
-			<input class="form-control" type="text" value="000.000.000.00" name='q17'>
+			<label>Enter a single IP address which would be cleared to access admin restricted pages:</label>
+			<input class="form-control" type="text" value="000.000.000.00" name='cleared_IP'>
 		</div>
 
 		<div class="form-group">
@@ -128,7 +154,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>Do you wish to allow more ip addresses to access admin restricted pages?</label>
+			<label>Do you wish to allow more IP addresses to access admin restricted pages?</label>
 			<select class="form-control" name='q19'>
 				<option selected>No</option>
 				<option value="Yes">Yes</option>
